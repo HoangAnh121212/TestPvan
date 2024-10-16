@@ -1,0 +1,60 @@
+
+        server:
+          servlet:
+            session:
+              cookie:
+                secure: true
+                same-site: None
+        spring:
+          jackson:
+            time-zone: Asia/Ho_Chi_Minh
+          servlet:
+            multipart:
+              enabled: true
+              file-size-threshold: 100KB
+              max-file-size: 200MB
+              max-request-size: 200MB
+          datasource:
+                url: jdbc:mysql://localhost:3306/LifeText?useSSL=false
+                username: root
+                password: 12012002
+
+          mvc:
+            pathmatch:
+              matching-strategy: ant_path_matcher
+          jpa:
+            properties:
+              hibernate:
+                dialect: org.hibernate.dialect.MySQLDialect
+            hibernate:
+              ddl-auto: none
+            show-sql: true
+            spring:
+              jpa:
+                properties:
+                  hibernate:
+                    query:
+                      subqueries=true:
+
+          logging:
+            level:
+              org.hibernate.SQL: DEBUG
+              org.hibernate.type: trace
+              root: INFO
+            pattern:
+              console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"  # ??nh d?ng log
+
+
+          main:
+            allow-circular-references: true
+
+
+        jwt:
+          key: 413F4428472B4B6250655368566D597033733676397924426452948404D6351
+          time: 360000000  # 1000*60*60 milliseconds
+        #http://localhost:8080/swagger-ui/index.html
+
+
+
+
+
